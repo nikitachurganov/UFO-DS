@@ -1,0 +1,6 @@
+export { default as Tag } from './Tag.vue'
+export { default as DismissibleTag } from './DismissibleTag.vue'
+export { default as OperationalTag } from './OperationalTag.vue'
+export { default as ReadOnlyTag } from './ReadOnlyTag.vue'
+export { default as SelectableTag } from './SelectableTag.vue'
+export type { ReadOnlyTagColor, TagColor, TagSize, TagTone, TagValue } from './Tag.types'

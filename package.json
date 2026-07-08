@@ -1,0 +1,38 @@
+{
+  "name": "ufo-design-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare:tokens": "node scripts/build-runtime-tokens.cjs",
+    "dev": "npm run prepare:tokens && vite",
+    "build": "npm run prepare:tokens && vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "storybook": "npm run prepare:tokens && storybook dev -p 6006",
+    "build-storybook": "npm run prepare:tokens && storybook build",
+    "new:component": "node scripts/new-component.cjs",
+    "validate:tokens": "node scripts/validate-component-tokens.cjs",
+    "verify": "npm run validate:tokens && npm run typecheck && npm run test && npm run build && npm run build-storybook"
+  },
+  "dependencies": {
+    "@fontsource/pt-sans": "^5.2.8",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "^10.4.6",
+    "@storybook/vue3-vite": "^10.4.6",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/test-utils": "^2.4.11",
+    "axe-core": "^4.12.1",
+    "jsdom": "^29.1.1",
+    "storybook": "^10.4.6",
+    "typescript": "^5.8.0",
+    "vite": "^7.0.0",
+    "vitest": "^4.1.9",
+    "vitest-axe": "^0.1.0",
+    "vue-tsc": "^3.0.0"
+  }
+}
