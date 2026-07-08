@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+﻿import { ref } from 'vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import OperationalTag from './OperationalTag.vue'
 import './Tag.stories.css'
@@ -10,11 +10,11 @@ const sizes: TagSize[] = ['tiny', 'small', 'medium', 'large']
 const colors: TagColor[] = ['gray', 'blue', 'purple', 'green', 'red', 'orange', 'yellow']
 
 const operationalTagDescription = `
-Основано на docs/templates/component-documentation-template.md
+РћСЃРЅРѕРІР°РЅРѕ РЅР° docs/templates/component-documentation-template.md
 
-OperationalTag — тег для компактных подсказок и второстепенных действий. Он не ограничен навигацией: один и тот же визуальный компонент может открыть страницу, заполнить поле, применить быстрый выбор или запустить другое мгновенное действие.
+OperationalTag вЂ” С‚РµРі РґР»СЏ РєРѕРјРїР°РєС‚РЅС‹С… РїРѕРґСЃРєР°Р·РѕРє Рё РІС‚РѕСЂРѕСЃС‚РµРїРµРЅРЅС‹С… РґРµР№СЃС‚РІРёР№. РћРЅ РЅРµ РѕРіСЂР°РЅРёС‡РµРЅ РЅР°РІРёРіР°С†РёРµР№: РѕРґРёРЅ Рё С‚РѕС‚ Р¶Рµ РІРёР·СѓР°Р»СЊРЅС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ РјРѕР¶РµС‚ РѕС‚РєСЂС‹С‚СЊ СЃС‚СЂР°РЅРёС†Сѓ, Р·Р°РїРѕР»РЅРёС‚СЊ РїРѕР»Рµ, РїСЂРёРјРµРЅРёС‚СЊ Р±С‹СЃС‚СЂС‹Р№ РІС‹Р±РѕСЂ РёР»Рё Р·Р°РїСѓСЃС‚РёС‚СЊ РґСЂСѓРіРѕРµ РјРіРЅРѕРІРµРЅРЅРѕРµ РґРµР№СЃС‚РІРёРµ.
 
-Используйте \`href\` только для настоящей навигации. Без \`href\` компонент рендерит нативный \`button\`. У OperationalTag намеренно нет disabled-состояния: если действие недоступно, не показывайте тег.
+РСЃРїРѕР»СЊР·СѓР№С‚Рµ \`href\` С‚РѕР»СЊРєРѕ РґР»СЏ РЅР°СЃС‚РѕСЏС‰РµР№ РЅР°РІРёРіР°С†РёРё. Р‘РµР· \`href\` РєРѕРјРїРѕРЅРµРЅС‚ СЂРµРЅРґРµСЂРёС‚ РЅР°С‚РёРІРЅС‹Р№ \`button\`. РЈ OperationalTag РЅР°РјРµСЂРµРЅРЅРѕ РЅРµС‚ disabled-СЃРѕСЃС‚РѕСЏРЅРёСЏ: РµСЃР»Рё РґРµР№СЃС‚РІРёРµ РЅРµРґРѕСЃС‚СѓРїРЅРѕ, РЅРµ РїРѕРєР°Р·С‹РІР°Р№С‚Рµ С‚РµРі.
 `
 
 const meta = {
@@ -36,39 +36,39 @@ const meta = {
     }),
   ],
   argTypes: {
-    label: { control: 'text', description: 'Текст тега.', table: { category: 'Контент' } },
+    label: { control: 'text', description: 'РўРµРєСЃС‚ С‚РµРіР°.', table: { category: 'РљРѕРЅС‚РµРЅС‚' } },
     size: {
       control: 'select',
       options: sizes,
-      description: 'Визуальный размер: tiny 24px, small 28px, medium 32px, large 36px.',
-      table: { category: 'Внешний вид' },
+      description: 'Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ: tiny 24px, small 28px, medium 32px, large 36px.',
+      table: { category: 'Р’РЅРµС€РЅРёР№ РІРёРґ' },
     },
     color: {
       control: 'select',
       options: colors,
-      description: 'Семантический цвет из Figma-компонента clickable tag.',
-      table: { category: 'Внешний вид' },
+      description: 'РЎРµРјР°РЅС‚РёС‡РµСЃРєРёР№ С†РІРµС‚ РёР· Figma-РєРѕРјРїРѕРЅРµРЅС‚Р° clickable tag.',
+      table: { category: 'Р’РЅРµС€РЅРёР№ РІРёРґ' },
     },
     href: {
       control: 'text',
-      description: 'Необязательный href для ссылки. Если не задан, OperationalTag рендерится как кнопка.',
-      table: { category: 'Поведение' },
+      description: 'РќРµРѕР±СЏР·Р°С‚РµР»СЊРЅС‹Р№ href РґР»СЏ СЃСЃС‹Р»РєРё. Р•СЃР»Рё РЅРµ Р·Р°РґР°РЅ, OperationalTag СЂРµРЅРґРµСЂРёС‚СЃСЏ РєР°Рє РєРЅРѕРїРєР°.',
+      table: { category: 'РџРѕРІРµРґРµРЅРёРµ' },
     },
-    target: { control: 'text', description: 'Нативный target для ссылки, если задан href.', table: { category: 'Поведение' } },
-    rel: { control: 'text', description: 'Нативный rel для ссылки, если задан href.', table: { category: 'Поведение' } },
+    target: { control: 'text', description: 'РќР°С‚РёРІРЅС‹Р№ target РґР»СЏ СЃСЃС‹Р»РєРё, РµСЃР»Рё Р·Р°РґР°РЅ href.', table: { category: 'РџРѕРІРµРґРµРЅРёРµ' } },
+    rel: { control: 'text', description: 'РќР°С‚РёРІРЅС‹Р№ rel РґР»СЏ СЃСЃС‹Р»РєРё, РµСЃР»Рё Р·Р°РґР°РЅ href.', table: { category: 'РџРѕРІРµРґРµРЅРёРµ' } },
     icon: {
       control: 'boolean',
-      description: 'Показывает правую иконку nav-arrow-up-right из Figma-компонента.',
-      table: { category: 'Контент' },
+      description: 'РџРѕРєР°Р·С‹РІР°РµС‚ РїСЂР°РІСѓСЋ РёРєРѕРЅРєСѓ nav-arrow-up-right РёР· Figma-РєРѕРјРїРѕРЅРµРЅС‚Р°.',
+      table: { category: 'РљРѕРЅС‚РµРЅС‚' },
     },
     onClick: {
       action: 'click',
-      description: 'Срабатывает для действий кнопки и кликов по ссылке.',
-      table: { category: 'События' },
+      description: 'РЎСЂР°Р±Р°С‚С‹РІР°РµС‚ РґР»СЏ РґРµР№СЃС‚РІРёР№ РєРЅРѕРїРєРё Рё РєР»РёРєРѕРІ РїРѕ СЃСЃС‹Р»РєРµ.',
+      table: { category: 'РЎРѕР±С‹С‚РёСЏ' },
     },
   },
   args: {
-    label: 'Москва',
+    label: 'РњРѕСЃРєРІР°',
     size: 'tiny',
     color: 'gray',
     href: undefined,
@@ -83,61 +83,12 @@ type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {}
 
-export const Default: Story = {}
-
 export const AsLink: Story = {
   args: {
-    label: 'Открыть каталог',
+    label: 'РћС‚РєСЂС‹С‚СЊ РєР°С‚Р°Р»РѕРі',
     href: '#',
     color: 'orange',
   },
-}
-
-export const Sizes: Story = {
-  parameters: { controls: { disable: true } },
-  render: () => ({
-    components: { OperationalTag },
-    setup() {
-      return { sizes }
-    },
-    template: `
-      <div class="tag-story-row">
-        <OperationalTag v-for="size in sizes" :key="size" label="Москва" :size="size" />
-      </div>
-    `,
-  }),
-}
-
-export const Colors: Story = {
-  parameters: { controls: { disable: true } },
-  render: () => ({
-    components: { OperationalTag },
-    setup() {
-      return { colors }
-    },
-    template: `
-      <div class="tag-story-row">
-        <OperationalTag v-for="color in colors" :key="color" label="Москва" :color="color" />
-      </div>
-    `,
-  }),
-}
-
-export const States: Story = {
-  parameters: { controls: { disable: true } },
-  render: () => ({
-    components: { OperationalTag },
-    template: `
-      <div class="tag-story-grid tag-story-grid--states">
-        <div class="tag-story-grid__head">по умолчанию</div>
-        <OperationalTag label="Москва" />
-        <div class="tag-story-grid__head">hover</div>
-        <OperationalTag class="operational-tag--preview-hover" label="Москва" />
-        <div class="tag-story-grid__head">focus</div>
-        <OperationalTag class="operational-tag--preview-focus" label="Москва" />
-      </div>
-    `,
-  }),
 }
 
 export const SearchSuggestion: Story = {
@@ -146,7 +97,7 @@ export const SearchSuggestion: Story = {
     components: { OperationalTag },
     setup() {
       const query = ref('mo')
-      const suggestions = ['Москва', 'Московская область', 'Московский']
+      const suggestions = ['РњРѕСЃРєРІР°', 'РњРѕСЃРєРѕРІСЃРєР°СЏ РѕР±Р»Р°СЃС‚СЊ', 'РњРѕСЃРєРѕРІСЃРєРёР№']
 
       function useSuggestion(value: string) {
         query.value = value
@@ -156,9 +107,9 @@ export const SearchSuggestion: Story = {
     },
     template: `
       <div class="tag-story-search">
-        <label class="tag-story-search__label" for="tag-search">Поиск</label>
+        <label class="tag-story-search__label" for="tag-search">РџРѕРёСЃРє</label>
         <input id="tag-search" v-model="query" class="tag-story-search__input" />
-        <div class="tag-story-row" aria-label="Подсказки поиска">
+        <div class="tag-story-row" aria-label="РџРѕРґСЃРєР°Р·РєРё РїРѕРёСЃРєР°">
           <OperationalTag
             v-for="suggestion in suggestions"
             :key="suggestion"
@@ -167,7 +118,7 @@ export const SearchSuggestion: Story = {
             @click="useSuggestion(suggestion)"
           />
         </div>
-        <p class="tag-story-note">При клике значение тега подставляется в поле поиска.</p>
+        <p class="tag-story-note">РџСЂРё РєР»РёРєРµ Р·РЅР°С‡РµРЅРёРµ С‚РµРіР° РїРѕРґСЃС‚Р°РІР»СЏРµС‚СЃСЏ РІ РїРѕР»Рµ РїРѕРёСЃРєР°.</p>
       </div>
     `,
   }),
@@ -179,8 +130,9 @@ export const LongContent: Story = {
     components: { OperationalTag },
     template: `
       <div class="tag-story-truncate">
-        <OperationalTag label="Очень длинное значение operational tag, которое должно обрезаться" />
+        <OperationalTag label="РћС‡РµРЅСЊ РґР»РёРЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ operational tag, РєРѕС‚РѕСЂРѕРµ РґРѕР»Р¶РЅРѕ РѕР±СЂРµР·Р°С‚СЊСЃСЏ" />
       </div>
     `,
   }),
 }
+

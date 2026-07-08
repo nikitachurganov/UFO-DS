@@ -1,0 +1,111 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as TagStories from './Tag.stories';
+import { DocsTabs } from '../../docs/components/DocsTabs';
+
+<Meta of={TagStories} />
+
+# Tag
+
+Based on `docs/templates/component-documentation-template.md`.
+
+<DocsTabs
+  tabs={[
+    {
+      id: 'overview',
+      label: 'Overview',
+      children: (
+        <>
+          <h2>Overview</h2>
+          <p>
+            Tag is a compact labeling pattern for short metadata, quick choices, dismissible values,
+            and secondary actions. The public Tag wrapper keeps legacy usage working, while the
+            explicit Tag family components describe the intended behavior more clearly.
+          </p>
+          <h3>When to use</h3>
+          <ul>
+            <li>Use ReadOnlyTag for static information that is only read.</li>
+            <li>Use SelectableTag for checkbox-like selection.</li>
+            <li>Use DismissibleTag for a removable value.</li>
+            <li>Use OperationalTag for a compact action or link.</li>
+          </ul>
+          <h3>When not to use</h3>
+          <ul>
+            <li>Do not use tags as primary page actions.</li>
+            <li>Do not use a read-only tag when the element changes state or navigates.</li>
+            <li>Do not encode meaning only by color.</li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      id: 'design',
+      label: 'Design',
+      children: (
+        <>
+          <h2>Design</h2>
+          <h3>Component sets</h3>
+          <Canvas of={TagStories.ComponentSets} />
+          <h3>Anatomy</h3>
+          <p>
+            Tags use a rounded container, a text wrapper, optional leading or trailing icon content,
+            and behavior-specific controls when the component is interactive.
+          </p>
+          <h3>Specification</h3>
+          <ul>
+            <li>Supported sizes are tiny, small, medium, and large where exposed by each Tag component.</li>
+            <li>Tag surfaces use semantic background, text, border, radius, spacing, and typography tokens.</li>
+            <li>Long labels stay on one line and truncate with ellipsis within the component width.</li>
+            <li>Light and dark mode behavior comes from the semantic token layer.</li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      id: 'development',
+      label: 'Development',
+      children: (
+        <>
+          <h2>Development</h2>
+          <h3>Imports</h3>
+          <pre><code>{`import {
+  DismissibleTag,
+  OperationalTag,
+  ReadOnlyTag,
+  SelectableTag,
+  Tag,
+} from 'ufo-design-system'`}</code></pre>
+          <h3>Public API</h3>
+          <p>
+            Prefer the explicit Tag family components for new code. The legacy Tag wrapper supports
+            modes: multi, single, operational, link, readonly, and dismissible.
+          </p>
+          <h3>Usage</h3>
+          <pre><code>{`<ReadOnlyTag label="New" color="blue" />
+<SelectableTag v-model="selected" label="Moscow" value="moscow" />
+<DismissibleTag label="Moscow" close-aria-label="Remove Moscow" @dismiss="remove" />
+<OperationalTag label="Open catalog" href="/catalog" />`}</code></pre>
+          <p>
+            Use the dedicated component docs for behavior-specific props, states, and examples.
+          </p>
+        </>
+      ),
+    },
+    {
+      id: 'accessibility',
+      label: 'Accessibility',
+      children: (
+        <>
+          <h2>Accessibility</h2>
+          <ul>
+            <li>ReadOnlyTag renders static text and does not enter the tab order.</li>
+            <li>SelectableTag uses native checkbox semantics through an input control.</li>
+            <li>DismissibleTag exposes a native button for the close action and requires an accessible close label.</li>
+            <li>OperationalTag renders a button for actions and an anchor when href is provided.</li>
+            <li>Interactive tags must keep keyboard and pointer behavior equivalent.</li>
+            <li>Focus-visible styles must remain visible and token-based.</li>
+          </ul>
+        </>
+      ),
+    },
+  ]}
+/>

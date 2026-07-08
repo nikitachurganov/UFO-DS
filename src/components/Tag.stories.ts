@@ -9,7 +9,6 @@ import './Tag.stories.css'
 const meta = {
   title: 'Components/Tag/Overview',
   component: Tag,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     controls: {

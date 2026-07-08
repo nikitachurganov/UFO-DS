@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
+﻿import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import DismissibleTag from './DismissibleTag.vue'
 import './Tag.stories.css'
 import type { TagSize, TagTone } from './Tag.types'
@@ -22,37 +22,37 @@ const meta = {
     }),
   ],
   argTypes: {
-    label: { control: 'text', description: 'Текст тега.', table: { category: 'Контент' } },
+    label: { control: 'text', description: 'РўРµРєСЃС‚ С‚РµРіР°.', table: { category: 'РљРѕРЅС‚РµРЅС‚' } },
     size: {
       control: 'select',
       options: sizes,
-      description: 'Визуальный размер: tiny 24px, small 28px, medium 32px, large 36px.',
-      table: { category: 'Внешний вид' },
+      description: 'Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ: tiny 24px, small 28px, medium 32px, large 36px.',
+      table: { category: 'Р’РЅРµС€РЅРёР№ РІРёРґ' },
     },
     type: {
       control: 'select',
       options: types,
-      description: 'Визуальный тип: primary или secondary.',
-      table: { category: 'Внешний вид' },
+      description: 'Р’РёР·СѓР°Р»СЊРЅС‹Р№ С‚РёРї: primary РёР»Рё secondary.',
+      table: { category: 'Р’РЅРµС€РЅРёР№ РІРёРґ' },
     },
     icon: {
       control: 'boolean',
-      description: 'Показывает кнопку с иконкой закрытия.',
-      table: { category: 'Контент' },
+      description: 'РџРѕРєР°Р·С‹РІР°РµС‚ РєРЅРѕРїРєСѓ СЃ РёРєРѕРЅРєРѕР№ Р·Р°РєСЂС‹С‚РёСЏ.',
+      table: { category: 'РљРѕРЅС‚РµРЅС‚' },
     },
     closeAriaLabel: {
       control: 'text',
-      description: 'Доступное название кнопки закрытия.',
-      table: { category: 'Доступность' },
+      description: 'Р”РѕСЃС‚СѓРїРЅРѕРµ РЅР°Р·РІР°РЅРёРµ РєРЅРѕРїРєРё Р·Р°РєСЂС‹С‚РёСЏ.',
+      table: { category: 'Р”РѕСЃС‚СѓРїРЅРѕСЃС‚СЊ' },
     },
-    disabled: { control: 'boolean', description: 'Отключает кнопку закрытия.', table: { category: 'Состояние' } },
+    disabled: { control: 'boolean', description: 'РћС‚РєР»СЋС‡Р°РµС‚ РєРЅРѕРїРєСѓ Р·Р°РєСЂС‹С‚РёСЏ.', table: { category: 'РЎРѕСЃС‚РѕСЏРЅРёРµ' } },
   },
   args: {
-    label: 'Москва',
+    label: 'РњРѕСЃРєРІР°',
     size: 'tiny',
     type: 'primary',
     icon: true,
-    closeAriaLabel: 'Удалить Москву',
+    closeAriaLabel: 'РЈРґР°Р»РёС‚СЊ РњРѕСЃРєРІСѓ',
     disabled: false,
   },
 } satisfies Meta<DismissibleTagStoryArgs>
@@ -62,42 +62,4 @@ type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {}
 
-export const Default: Story = {}
 
-export const Sizes: Story = {
-  parameters: { controls: { disable: true } },
-  render: () => ({
-    components: { DismissibleTag },
-    setup() {
-      return { sizes }
-    },
-    template: `
-      <div class="tag-story-row">
-        <DismissibleTag v-for="size in sizes" :key="size" label="Москва" :size="size" />
-      </div>
-    `,
-  }),
-}
-
-export const States: Story = {
-  parameters: { controls: { disable: true } },
-  render: () => ({
-    components: { DismissibleTag },
-    template: `
-      <div class="tag-story-grid tag-story-grid--states">
-        <div class="tag-story-grid__head">primary</div>
-        <DismissibleTag label="Москва" type="primary" />
-        <div class="tag-story-grid__head">secondary</div>
-        <DismissibleTag label="Москва" type="secondary" />
-        <div class="tag-story-grid__head">hover primary</div>
-        <DismissibleTag class="ufo-tag--preview-hover" label="Москва" type="primary" />
-        <div class="tag-story-grid__head">hover secondary</div>
-        <DismissibleTag class="ufo-tag--preview-hover" label="Москва" type="secondary" />
-        <div class="tag-story-grid__head">focus</div>
-        <DismissibleTag class="ufo-tag--preview-focus" label="Москва" close-aria-label="Удалить Москву" />
-        <div class="tag-story-grid__head">отключён</div>
-        <DismissibleTag label="Москва" disabled />
-      </div>
-    `,
-  }),
-}

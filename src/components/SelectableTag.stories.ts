@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue'
+﻿import { ref, watch } from 'vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import SelectableTag from './SelectableTag.vue'
 import './Tag.stories.css'
@@ -22,29 +22,29 @@ const meta = {
     }),
   ],
   argTypes: {
-    label: { control: 'text', description: 'Текст тега.', table: { category: 'Контент' } },
+    label: { control: 'text', description: 'РўРµРєСЃС‚ С‚РµРіР°.', table: { category: 'РљРѕРЅС‚РµРЅС‚' } },
     size: {
       control: 'select',
       options: sizes,
-      description: 'Визуальный размер: tiny 24px, small 28px, medium 32px, large 36px.',
-      table: { category: 'Внешний вид' },
+      description: 'Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ: tiny 24px, small 28px, medium 32px, large 36px.',
+      table: { category: 'Р’РЅРµС€РЅРёР№ РІРёРґ' },
     },
     modelValue: {
       control: 'boolean',
-      description: 'Состояние выбора. Использует нативную семантику checkbox.',
-      table: { category: 'Состояние' },
+      description: 'РЎРѕСЃС‚РѕСЏРЅРёРµ РІС‹Р±РѕСЂР°. РСЃРїРѕР»СЊР·СѓРµС‚ РЅР°С‚РёРІРЅСѓСЋ СЃРµРјР°РЅС‚РёРєСѓ checkbox.',
+      table: { category: 'РЎРѕСЃС‚РѕСЏРЅРёРµ' },
     },
     floating: {
       control: 'boolean',
-      description: 'Визуальное floating-состояние из Figma.',
-      table: { category: 'Состояние' },
+      description: 'Р’РёР·СѓР°Р»СЊРЅРѕРµ floating-СЃРѕСЃС‚РѕСЏРЅРёРµ РёР· Figma.',
+      table: { category: 'РЎРѕСЃС‚РѕСЏРЅРёРµ' },
     },
-    disabled: { control: 'boolean', description: 'Отключает checkbox.', table: { category: 'Состояние' } },
-    name: { control: 'text', description: 'Нативное имя checkbox.', table: { category: 'Поведение' } },
-    value: { control: 'text', description: 'Нативное значение checkbox.', table: { category: 'Поведение' } },
+    disabled: { control: 'boolean', description: 'РћС‚РєР»СЋС‡Р°РµС‚ checkbox.', table: { category: 'РЎРѕСЃС‚РѕСЏРЅРёРµ' } },
+    name: { control: 'text', description: 'РќР°С‚РёРІРЅРѕРµ РёРјСЏ checkbox.', table: { category: 'РџРѕРІРµРґРµРЅРёРµ' } },
+    value: { control: 'text', description: 'РќР°С‚РёРІРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ checkbox.', table: { category: 'РџРѕРІРµРґРµРЅРёРµ' } },
   },
   args: {
-    label: 'Москва',
+    label: 'РњРѕСЃРєРІР°',
     size: 'tiny',
     modelValue: false,
     floating: false,
@@ -85,44 +85,4 @@ type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {}
 
-export const Default: Story = {}
 
-export const Sizes: Story = {
-  parameters: { controls: { disable: true } },
-  render: () => ({
-    components: { SelectableTag },
-    setup() {
-      return { sizes }
-    },
-    template: `
-      <div class="tag-story-row">
-        <SelectableTag v-for="size in sizes" :key="size" label="Москва" :size="size" />
-      </div>
-    `,
-  }),
-}
-
-export const States: Story = {
-  parameters: { controls: { disable: true } },
-  render: () => ({
-    components: { SelectableTag },
-    template: `
-      <div class="tag-story-grid tag-story-grid--states">
-        <div class="tag-story-grid__head">по умолчанию</div>
-        <SelectableTag label="Москва" />
-        <div class="tag-story-grid__head">выбрано</div>
-        <SelectableTag label="Москва" model-value />
-        <div class="tag-story-grid__head">floating</div>
-        <SelectableTag label="Москва" floating />
-        <div class="tag-story-grid__head">выбрано floating</div>
-        <SelectableTag label="Москва" model-value floating />
-        <div class="tag-story-grid__head">hover</div>
-        <SelectableTag class="ufo-tag--preview-hover" label="Москва" />
-        <div class="tag-story-grid__head">focus</div>
-        <SelectableTag class="ufo-tag--preview-focus" label="Москва" />
-        <div class="tag-story-grid__head">отключён</div>
-        <SelectableTag label="Москва" disabled />
-      </div>
-    `,
-  }),
-}
