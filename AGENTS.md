@@ -1,92 +1,92 @@
 # AGENTS.md
 
-## Project context
+## Контекст проекта
 
-This repository contains the UFO design system component library with Storybook documentation.
+Этот репозиторий содержит библиотеку компонентов дизайн-системы UFO и документацию Storybook.
 
-The main goal is to build reusable, accessible, token-based UI components with consistent APIs, predictable behavior, and complete documentation.
+Главная цель — создавать переиспользуемые, доступные, token-based UI-компоненты с согласованными API, предсказуемым поведением и полной документацией.
 
-## Repository structure
+## Структура репозитория
 
-- `src/` — source code of the design system.
-- `.storybook/` — Storybook configuration.
-- `.agents/skills/` — Codex skills for repeatable component workflows.
-- `.agents/component-spec-template.md` — reusable component specification template.
-- `.agents/component-ready-checklist.md` — checklist for deciding whether a component is ready.
-- `.agents/tag-component-spec.md` — example or working specification for the Tag component.
-- `TOKENS.md` — design token documentation.
-- `README.md` — general project documentation.
+- `src/` — исходный код дизайн-системы.
+- `.storybook/` — конфигурация Storybook.
+- `.agents/skills/` — навыки Codex для повторяемых компонентных workflow.
+- `.agents/component-spec-template.md` — переиспользуемый шаблон спецификации компонента.
+- `.agents/component-ready-checklist.md` — чеклист готовности компонента.
+- `.agents/tag-component-spec.md` — пример или рабочая спецификация компонента Tag.
+- `TOKENS.md` — документация дизайн-токенов.
+- `README.md` — общая документация проекта.
 
-## Core rules
+## Основные правила
 
-- Read this file before planning or changing code.
-- Inspect existing components before creating a new component or pattern.
-- Prefer existing architecture, naming, styling, testing, and Storybook conventions.
-- Do not introduce new public API patterns unless existing patterns are insufficient.
-- Do not add production dependencies without explicit approval.
-- Do not use raw color, spacing, typography, radius, shadow, or z-index values when a design token exists.
-- Do not hardcode visual values that should belong to tokens.
-- Keep component behavior, state, and visual styling clearly separated.
-- Public components must be typed, exported, documented, and covered by Storybook stories.
-- Interactive components must support keyboard behavior, focus-visible state, and accessible semantics.
-- If a command is missing from `package.json`, report that it is missing instead of inventing one.
+- Прочитайте этот файл перед планированием или изменением кода.
+- Изучайте существующие компоненты перед созданием нового компонента или паттерна.
+- Предпочитайте существующую архитектуру, naming, styling, testing и Storybook-соглашения.
+- Не вводите новые паттерны публичного API, если существующих паттернов достаточно.
+- Не добавляйте production dependencies без явного разрешения.
+- Не используйте raw color, spacing, typography, radius, shadow или z-index values, если существует дизайн-токен.
+- Не хардкодьте визуальные значения, которые должны принадлежать токенам.
+- Четко разделяйте поведение компонента, состояние и визуальную стилизацию.
+- Публичные компоненты должны быть типизированы, экспортированы, задокументированы и покрыты Storybook stories.
+- Интерактивные компоненты должны поддерживать клавиатурное поведение, focus-visible state и доступную семантику.
+- Если команды нет в `package.json`, сообщите, что она отсутствует, вместо того чтобы придумывать команду.
 
-## Design system principles
+## Принципы дизайн-системы
 
-- Components should be composable, predictable, and narrow in responsibility.
-- Component APIs should describe behavior and intent, not implementation details.
-- Avoid boolean prop explosion.
-- Prefer `variant`, `size`, `state`, and behavior-specific props only when they match existing repository patterns.
-- Avoid duplicating existing components under a new name.
-- If a new component overlaps with an existing component, explain the difference before implementing.
-- Prefer slots or composition for custom content when content structure can vary.
-- Use controlled patterns for state when the parent application needs to own the state.
-- Use uncontrolled or internal state only when it matches existing repository conventions.
+- Компоненты должны быть компонуемыми, предсказуемыми и узкими по ответственности.
+- API компонентов должен описывать поведение и намерение, а не детали реализации.
+- Избегайте разрастания boolean props.
+- Предпочитайте `variant`, `size`, `state` и behavior-specific props только когда они совпадают с паттернами репозитория.
+- Не дублируйте существующие компоненты под новым именем.
+- Если новый компонент пересекается с существующим, объясните различие перед реализацией.
+- Предпочитайте slots или композицию для кастомного контента, когда структура контента может отличаться.
+- Используйте controlled-паттерны для состояния, которым должно управлять parent-приложение.
+- Используйте uncontrolled или внутреннее состояние только когда это соответствует соглашениям репозитория.
 
-## Component workflow
+## Workflow компонента
 
-For new components or significant component changes:
+Для новых компонентов или значимых изменений компонента:
 
-1. Use `$component-intake` to prepare or validate the component specification.
-2. Use `$component-implementation` to implement the component.
-3. Use `$storybook-docs` to add or improve Storybook documentation.
-4. Use `$design-system-a11y` to audit accessibility.
-5. Use `$component-review` before the component is considered ready.
+1. Используйте `$component-intake`, чтобы подготовить или проверить спецификацию компонента.
+2. Используйте `$component-implementation`, чтобы реализовать компонент.
+3. Используйте `$storybook-docs`, чтобы добавить или улучшить Storybook-документацию.
+4. Используйте `$design-system-a11y`, чтобы проверить доступность.
+5. Используйте `$component-review`, прежде чем считать компонент готовым.
 
-Before implementing a component, inspect:
+Перед реализацией компонента изучите:
 
-- `TOKENS.md`
-- `.agents/component-spec-template.md`
-- `.agents/component-ready-checklist.md`
-- related components in `src/`
-- related stories in Storybook
-- related tests
+- `TOKENS.md`;
+- `.agents/component-spec-template.md`;
+- `.agents/component-ready-checklist.md`;
+- связанные компоненты в `src/`;
+- связанные stories в Storybook;
+- связанные тесты.
 
-## Component decision checklist
+## Чеклист решения по компоненту
 
-Before implementing a component, define:
+Перед реализацией компонента определите:
 
-- Purpose
-- Related components
-- Non-goals
-- Anatomy
-- Variants
-- Sizes
-- States
-- Props
-- Events or callbacks
-- Slots or composition points
-- Token usage
-- Accessibility requirements
-- Storybook coverage
-- Test coverage
-- Acceptance criteria
+- назначение;
+- связанные компоненты;
+- нецели;
+- анатомию;
+- варианты;
+- размеры;
+- состояния;
+- props;
+- события или callbacks;
+- slots или точки композиции;
+- использование токенов;
+- требования доступности;
+- покрытие Storybook;
+- тестовое покрытие;
+- критерии приемки.
 
-## Component structure
+## Структура компонента
 
-Follow the existing repository convention.
+Следуйте соглашениям репозитория.
 
-If no convention exists, prefer this structure:
+Если соглашений нет, предпочитайте такую структуру:
 
     ComponentName/
       ComponentName.tsx
@@ -96,179 +96,181 @@ If no convention exists, prefer this structure:
       ComponentName.test.tsx
       index.ts
 
-If the repository uses Vue, SFC, CSS Modules, SCSS, vanilla-extract, styled-components, or another convention, follow the existing convention instead of this example.
+Если репозиторий использует Vue, SFC, CSS Modules, SCSS, vanilla-extract, styled-components или другое соглашение, следуйте существующему соглашению вместо этого примера.
 
-## Component documentation
+## Документация компонента
 
-When creating or updating component documentation, always use `docs/templates/component-documentation-template.md` as the required structure. Do not invent variants, states, props, or accessibility behavior that are not implemented in the component.
+При создании или обновлении документации компонента всегда используйте `docs/templates/component-documentation-template.md` как обязательную структуру. Не придумывайте варианты, состояния, props или accessibility-поведение, которых нет в компоненте.
 
-## Public API rules
+Вся пользовательская документация компонентов, включая Storybook descriptions, MDX-страницы, подписи controls, категории таблиц props и тексты примеров, должна быть на русском языке и сохранена в UTF-8 без BOM. Технические имена компонентов, props, events, slots, импортов и значений API не переводятся.
 
-- Export public components from the library entry point.
-- Export public types when they are useful for consumers.
-- Keep internal helpers private unless there is a clear reuse case.
-- Use clear prop names that match existing components.
-- Do not expose implementation details as props.
-- Avoid ambiguous names such as `type` unless the repository already uses them consistently.
-- Use `disabled` only for true disabled behavior, not for visual muting.
-- Use `as`, `asChild`, or polymorphic patterns only if the repository already supports them.
-- Separate visual variants from behavior modes.
+## Правила публичного API
 
-## Styling and tokens
+- Экспортируйте публичные компоненты из entry point библиотеки.
+- Экспортируйте публичные типы, когда они полезны потребителям.
+- Держите internal helpers приватными, если нет явного reuse case.
+- Используйте понятные имена props, совпадающие с существующими компонентами.
+- Не раскрывайте детали реализации как props.
+- Избегайте неоднозначных имен вроде `type`, если репозиторий не использует их последовательно.
+- Используйте `disabled` только для настоящего disabled-поведения, а не для визуального приглушения.
+- Используйте `as`, `asChild` или polymorphic-паттерны только если репозиторий уже поддерживает их.
+- Отделяйте визуальные варианты от behavior modes.
 
-- Use existing design tokens for color, background, surface, text, icon, stroke, spacing, radius, typography, shadow, and focus ring.
-- Do not create new tokens unless the component cannot be expressed with existing tokens.
-- If a new token appears necessary, document:
-  - why existing tokens are insufficient;
-  - proposed token name;
+## Стилизация и токены
+
+- Используйте существующие дизайн-токены для color, background, surface, text, icon, stroke, spacing, radius, typography, shadow и focus ring.
+- Не создавайте новые токены, если компонент можно выразить существующими токенами.
+- Если новый токен кажется необходимым, задокументируйте:
+  - почему существующих токенов недостаточно;
+  - предлагаемое имя токена;
   - intended semantic role;
-  - affected components.
-- Do not duplicate token values inside component styles.
-- State styles must be explicit:
+  - затронутые компоненты.
+- Не дублируйте значения токенов внутри стилей компонента.
+- State styles должны быть явными:
   - default;
   - hover;
-  - active or pressed;
+  - active или pressed;
   - focus-visible;
   - disabled;
-  - selected or checked, when applicable.
+  - selected или checked, когда применимо.
 
-## Accessibility rules
+## Правила доступности
 
-Interactive components must define:
+Интерактивные компоненты должны определять:
 
-- Correct semantic element or ARIA role.
-- Keyboard interaction.
-- Focus order.
-- Focus-visible styling.
-- Disabled behavior.
-- Screen reader name.
-- ARIA state when applicable.
-- Contrast risks.
-- Pointer and keyboard parity.
+- корректный семантический элемент или ARIA-роль;
+- клавиатурное взаимодействие;
+- порядок фокуса;
+- focus-visible styling;
+- disabled-поведение;
+- screen reader name;
+- ARIA state, когда применимо;
+- contrast risks;
+- паритет pointer и keyboard.
 
-Use native elements whenever possible:
+Используйте нативные элементы всегда, когда возможно:
 
-- Use `button` for actions.
-- Use `a` for navigation.
-- Use `input`, `checkbox`, `radio`, or semantic equivalents when selection behavior is required.
-- Do not replace native semantics with ARIA unless there is a clear reason.
+- используйте `button` для действий;
+- используйте `a` для навигации;
+- используйте `input`, `checkbox`, `radio` или семантические эквиваленты, когда требуется selection behavior;
+- не заменяйте нативную семантику ARIA, если нет явной причины.
 
-## Storybook requirements
+## Требования Storybook
 
-Every public component must include Storybook coverage.
+Каждый публичный компонент должен иметь Storybook-покрытие.
 
-Minimum stories:
+Минимальные stories:
 
-- Default
-- Sizes
-- Variants
-- States
-- Disabled, when applicable
-- Interactive behavior, when applicable
-- With icon / without icon, when applicable
-- Long content
-- Edge cases
-- Composition or slot usage, when applicable
+- Default;
+- Sizes;
+- Variants;
+- States;
+- Disabled, когда применимо;
+- Interactive behavior, когда применимо;
+- With icon / without icon, когда применимо;
+- Long content;
+- Edge cases;
+- Composition или slot usage, когда применимо.
 
-Documentation should include:
+Документация должна включать:
 
-- Purpose
-- When to use
-- When not to use
-- Anatomy
-- Props and controls
-- States
-- Accessibility notes
-- Usage examples
-- Related components
+- назначение;
+- когда использовать;
+- когда не использовать;
+- анатомию;
+- props и controls;
+- состояния;
+- заметки по доступности;
+- примеры использования;
+- связанные компоненты.
 
-Use Autodocs for simple components.
+Используйте Autodocs для простых компонентов.
 
-Use MDX or a richer docs page when the component requires:
+Используйте MDX или более богатую docs-страницу, когда компонент требует:
 
-- usage rules;
-- anatomy;
-- do and don’t guidance;
-- accessibility explanation;
-- complex examples;
+- правил использования;
+- анатомии;
+- do and don't guidance;
+- объяснения доступности;
+- сложных примеров;
 - component-specific design guidance.
 
-## Testing requirements
+## Требования к тестированию
 
-Add or update tests when component behavior changes.
+Добавляйте или обновляйте тесты, когда меняется поведение компонента.
 
-Prefer tests for:
+Предпочитайте тесты для:
 
-- Rendering
-- Variants
-- Sizes
-- States
-- Events or callbacks
-- Keyboard behavior
-- Focus behavior
-- Disabled behavior
-- Selected or checked behavior
-- Accessibility-critical behavior
-- Storybook play functions for interactive scenarios when the project uses them
+- rendering;
+- variants;
+- sizes;
+- states;
+- events или callbacks;
+- keyboard behavior;
+- focus behavior;
+- disabled behavior;
+- selected или checked behavior;
+- accessibility-critical behavior;
+- Storybook play functions для интерактивных сценариев, если проект их использует.
 
-Avoid brittle tests that only verify implementation details.
+Избегайте хрупких тестов, которые проверяют только детали реализации.
 
-## Validation commands
+## Команды проверки
 
-Before finishing a task, inspect `package.json` and run the relevant available commands.
+Перед завершением задачи изучите `package.json` и запустите релевантные доступные команды.
 
-Common commands to look for:
+Типовые команды, которые нужно искать:
 
-- `npm run lint`
-- `npm run typecheck`
-- `npm run test`
-- `npm run test:unit`
-- `npm run test:storybook`
-- `npm run build`
-- `npm run build-storybook`
-- `npm run storybook:build`
+- `npm run lint`;
+- `npm run typecheck`;
+- `npm run test`;
+- `npm run test:unit`;
+- `npm run test:storybook`;
+- `npm run build`;
+- `npm run build-storybook`;
+- `npm run storybook:build`.
 
-Use the package manager already used by the repository: npm, pnpm, yarn, or bun.
+Используйте package manager, который уже используется в репозитории: npm, pnpm, yarn или bun.
 
-If validation fails, explain:
+Если проверка падает, объясните:
 
-- which command failed;
-- why it failed;
-- what was fixed;
-- what still remains.
+- какая команда упала;
+- почему она упала;
+- что было исправлено;
+- что остается.
 
-## Subagent usage
+## Использование subagents
 
-Use subagents when the task asks for parallel analysis, review, or exploration.
+Используйте subagents, когда задача просит параллельный анализ, review или exploration.
 
-Recommended subagent roles:
+Рекомендуемые роли subagents:
 
-- Component API reviewer
-- Storybook documentation reviewer
-- Accessibility reviewer
-- Test coverage reviewer
-- Token usage reviewer
+- Component API reviewer;
+- Storybook documentation reviewer;
+- Accessibility reviewer;
+- Test coverage reviewer;
+- Token usage reviewer.
 
-Subagents should usually inspect and report.
+Subagents обычно должны только изучать и сообщать.
 
-They should not edit files unless the user explicitly asks for parallel implementation.
+Они не должны редактировать файлы, если пользователь явно не попросил параллельную реализацию.
 
-When using subagents:
+При использовании subagents:
 
-1. Give each subagent a bounded task.
-2. Ask each subagent to return file references.
-3. Wait for all subagents.
-4. Summarize findings.
-5. Let the main agent decide and implement final changes.
+1. Дайте каждому subagent ограниченную задачу.
+2. Попросите каждого subagent вернуть file references.
+3. Дождитесь всех subagents.
+4. Суммируйте findings.
+5. Пусть main agent принимает решение и вносит финальные изменения.
 
-## Final response format
+## Формат финального ответа
 
-At the end of a task, return:
+В конце задачи верните:
 
-- Summary of what changed
-- List of changed files
-- Storybook stories added or updated
-- Tests added or updated
-- Validation commands run and results
-- Remaining risks or manual checks
-- Suggested updates to AGENTS.md or skills, if a recurring rule was discovered
+- summary of what changed;
+- list of changed files;
+- Storybook stories added or updated;
+- tests added or updated;
+- validation commands run and results;
+- remaining risks or manual checks;
+- suggested updates to AGENTS.md or skills, if a recurring rule was discovered.

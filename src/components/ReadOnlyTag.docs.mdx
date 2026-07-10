@@ -1,0 +1,171 @@
+import {
+  Description,
+  Meta,
+  Primary,
+  Story,
+  Title,
+} from '@storybook/addon-docs/blocks'
+import * as ReadOnlyTagStories from './ReadOnlyTag.stories'
+import readOnlyTagAnatomy from '../images/ReadOnlyTag_Anatomy.png'
+import './Tag.stories.css'
+
+<Meta of={ReadOnlyTagStories} />
+
+<Title />
+
+<Description />
+
+<Primary />
+
+<article className="tag-docs">
+  <section className="tag-docs__section">
+    <Story of={ReadOnlyTagStories.ColorSizeMatrix} />
+  </section>
+
+  <section className="tag-docs__section">
+    <h2>Базовые правила</h2>
+    <ul>
+      <li>Используйте ReadOnlyTag только для информации, которую пользователь читает, но с которой не взаимодействует.</li>
+      <li>Держите текст коротким: обычно 1-3 слова или компактное значение.</li>
+      <li>Используйте цвет для визуального различения групп, но не как единственный источник смысла.</li>
+      <li>Не добавляйте поведение через внешние обработчики клика, <code>tabIndex</code>, роли кнопки или checkbox.</li>
+      <li>Не используйте ReadOnlyTag как единственный способ сообщить критически важную информацию.</li>
+      <li>Не перегружайте блок множеством разноцветных тегов: они должны помогать сканировать контекст.</li>
+    </ul>
+  </section>
+
+  <section className="tag-docs__section">
+    <h2>Когда использовать</h2>
+    <ul>
+      <li>Короткая категория: <code>Новинка</code>, <code>Популярное</code>, <code>Серия A</code>.</li>
+      <li>Компактный атрибут объекта: <code>До 5 кг</code>, <code>4 товара</code>, <code>Онлайн</code>.</li>
+      <li>Дополнительное свойство карточки, товара, строки таблицы или списка.</li>
+      <li>Нейтральная или уточняющая метка, которая не требует действия.</li>
+      <li>Визуальная группировка информации, если текст метки остается понятным без цвета.</li>
+    </ul>
+  </section>
+
+  <section className="tag-docs__section">
+    <h2>Когда не использовать</h2>
+    <p>Не используйте ReadOnlyTag, если элемент должен:</p>
+    <ul>
+      <li>работать как кнопка, ссылка или короткое действие;</li>
+      <li>открывать страницу, модальное окно, popover или меню;</li>
+      <li>быть выбранным или снятым с выбора;</li>
+      <li>работать как фильтр, checkbox или radio;</li>
+      <li>удаляться через крестик или кнопку закрытия;</li>
+      <li>показывать полноценный статус процесса, ошибку, предупреждение или успех;</li>
+      <li>заменять alert, notification, badge, status label или системное сообщение;</li>
+      <li>содержать длинный текст, который важен без обрезки.</li>
+    </ul>
+  </section>
+
+  <section className="tag-docs__section">
+    <h2>Анатомия</h2>
+    <figure className="tag-docs-anatomy">
+      <img src={readOnlyTagAnatomy} alt="Анатомия ReadOnlyTag: leading icon, label и icon" />
+    </figure>
+  </section>
+
+  <section className="tag-docs__section">
+    <h2>Размеры</h2>
+    <p>
+      Ширина зависит от содержимого. Максимальная длина текста —
+      256px. Длинный текст остается в одну строку и обрезается многоточием.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>Высота</th>
+          <th>Иконка</th>
+          <th>Текст</th>
+          <th>Использование</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>tiny</code></td>
+          <td>24px</td>
+          <td>16px</td>
+          <td>14px / 130%</td>
+          <td>Самые плотные интерфейсные зоны и компактные списки.</td>
+        </tr>
+        <tr>
+          <td><code>small</code></td>
+          <td>28px</td>
+          <td>18px</td>
+          <td>14px / 130%</td>
+          <td>Компактная дополнительная информация.</td>
+        </tr>
+        <tr>
+          <td><code>medium</code></td>
+          <td>32px</td>
+          <td>18px</td>
+          <td>16px / 140%</td>
+          <td>Базовый размер для большинства случаев.</td>
+        </tr>
+        <tr>
+          <td><code>large</code></td>
+          <td>36px</td>
+          <td>20px</td>
+          <td>16px / 140%</td>
+          <td>Более заметные метки в свободных layout-зонах.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </section>
+
+  <section className="tag-docs__section">
+    <h2>Светлая и темная темы</h2>
+    <div className="tag-docs-theme-block">
+      <Story of={ReadOnlyTagStories.ThemeBlock} />
+    </div>
+  </section>
+
+  <section className="tag-docs__section">
+    <h2>Правила контента</h2>
+    <ul>
+      <li>Пишите коротко и конкретно: <code>Новинка</code>, <code>Онлайн</code>, <code>До 5 кг</code>, <code>4 товара</code>.</li>
+      <li>Не ставьте точку в конце.</li>
+      <li>Не используйте текст действия: <code>Перейти</code>, <code>Подробнее</code>, <code>Нажмите</code>.</li>
+      <li>Не вкладывайте сложную разметку, интерактивные элементы, ссылки или кнопки в default slot.</li>
+      <li>Используйте leading icon только если она ускоряет распознавание или поддерживает текстовый смысл.</li>
+      <li>Не полагайтесь на иконку как на единственный носитель смысла: смысл должен быть понятен из текста.</li>
+    </ul>
+  </section>
+
+  <section className="tag-docs__section">
+    <h2>Примеры использования</h2>
+    <pre><code>{`<ReadOnlyTag label="Новинка" size="medium" color="gray" />`}</code></pre>
+    <pre><code>{`<ReadOnlyTag size="medium" color="blue">
+  Онлайн
+  <template #leading>
+    <Icon />
+  </template>
+</ReadOnlyTag>`}</code></pre>
+    <pre><code>{`<div class="limited-width">
+  <ReadOnlyTag label="Очень длинное значение тега" size="medium" color="gray" />
+</div>`}</code></pre>
+  </section>
+
+  <section className="tag-docs__section">
+    <h2>Доступность</h2>
+    <ul>
+      <li>Семантический элемент: <code>span</code>.</li>
+      <li>Роль не задается.</li>
+      <li>Компонент не фокусируется и не управляется с клавиатуры.</li>
+      <li>Собственного focus-visible состояния нет.</li>
+      <li><code>aria-pressed</code>, <code>aria-checked</code>, <code>aria-selected</code> и похожие состояния не применяются.</li>
+      <li>Disabled не применяется: компонент либо отображается, либо не отображается.</li>
+      <li>Screen reader читает текстовое содержимое тега как обычный текст в потоке.</li>
+      <li>Декоративная leading-иконка скрыта через <code>aria-hidden="true"</code>.</li>
+    </ul>
+    <p>
+      Критически важная информация должна быть продублирована в основном
+      тексте интерфейса или выражена специализированным компонентом статуса,
+      предупреждения или ошибки.
+    </p>
+  </section>
+</article>

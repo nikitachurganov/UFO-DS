@@ -6,67 +6,69 @@ import { DocsTabs } from '../../docs/components/DocsTabs';
 
 # Tag
 
-Based on `docs/templates/component-documentation-template.md`.
+Основано на `docs/templates/component-documentation-template.md`.
 
 <DocsTabs
   tabs={[
     {
       id: 'overview',
-      label: 'Overview',
+      label: 'Обзор',
       children: (
         <>
-          <h2>Overview</h2>
+          <h2>Обзор</h2>
           <p>
-            Tag is a compact labeling pattern for short metadata, quick choices, dismissible values,
-            and secondary actions. The public Tag wrapper keeps legacy usage working, while the
-            explicit Tag family components describe the intended behavior more clearly.
+            Tag — компактный паттерн меток для коротких метаданных, быстрого выбора,
+            удаляемых значений и вторичных действий. Публичная обертка Tag сохраняет
+            совместимость со старым использованием, а явные компоненты семейства Tag
+            точнее описывают ожидаемое поведение.
           </p>
-          <h3>When to use</h3>
+          <h3>Когда использовать</h3>
           <ul>
-            <li>Use ReadOnlyTag for static information that is only read.</li>
-            <li>Use SelectableTag for checkbox-like selection.</li>
-            <li>Use DismissibleTag for a removable value.</li>
-            <li>Use OperationalTag for a compact action or link.</li>
+            <li>Используйте ReadOnlyTag для статичной информации, которую нужно только прочитать.</li>
+            <li>Используйте SelectableTag для выбора с поведением checkbox.</li>
+            <li>Используйте DismissibleTag для значения, которое можно удалить.</li>
+            <li>Используйте OperationalTag для компактного действия или ссылки.</li>
           </ul>
-          <h3>When not to use</h3>
+          <h3>Когда не использовать</h3>
           <ul>
-            <li>Do not use tags as primary page actions.</li>
-            <li>Do not use a read-only tag when the element changes state or navigates.</li>
-            <li>Do not encode meaning only by color.</li>
+            <li>Не используйте теги как основные действия страницы.</li>
+            <li>Не используйте read-only тег, если элемент меняет состояние или ведет по ссылке.</li>
+            <li>Не передавайте смысл только цветом.</li>
           </ul>
         </>
       ),
     },
     {
       id: 'design',
-      label: 'Design',
+      label: 'Дизайн',
       children: (
         <>
-          <h2>Design</h2>
-          <h3>Component sets</h3>
+          <h2>Дизайн</h2>
+          <h3>Наборы компонентов</h3>
           <Canvas of={TagStories.ComponentSets} />
-          <h3>Anatomy</h3>
+          <h3>Анатомия</h3>
           <p>
-            Tags use a rounded container, a text wrapper, optional leading or trailing icon content,
-            and behavior-specific controls when the component is interactive.
+            Теги используют скругленный контейнер, текстовую обертку, необязательный контент
+            с иконкой слева или справа и controls, зависящие от поведения, когда компонент
+            интерактивный.
           </p>
-          <h3>Specification</h3>
+          <h3>Спецификация</h3>
           <ul>
-            <li>Supported sizes are tiny, small, medium, and large where exposed by each Tag component.</li>
-            <li>Tag surfaces use semantic background, text, border, radius, spacing, and typography tokens.</li>
-            <li>Long labels stay on one line and truncate with ellipsis within the component width.</li>
-            <li>Light and dark mode behavior comes from the semantic token layer.</li>
+            <li>Поддерживаемые размеры: tiny, small, medium и large там, где они доступны в конкретном Tag-компоненте.</li>
+            <li>Поверхности Tag используют семантические токены фона, текста, border, radius, spacing и typography.</li>
+            <li>Длинные labels остаются в одну строку и обрезаются ellipsis внутри ширины компонента.</li>
+            <li>Поведение светлой и темной темы приходит из слоя семантических токенов.</li>
           </ul>
         </>
       ),
     },
     {
       id: 'development',
-      label: 'Development',
+      label: 'Разработка',
       children: (
         <>
-          <h2>Development</h2>
-          <h3>Imports</h3>
+          <h2>Разработка</h2>
+          <h3>Импорты</h3>
           <pre><code>{`import {
   DismissibleTag,
   OperationalTag,
@@ -74,35 +76,36 @@ Based on `docs/templates/component-documentation-template.md`.
   SelectableTag,
   Tag,
 } from 'ufo-design-system'`}</code></pre>
-          <h3>Public API</h3>
+          <h3>Публичный API</h3>
           <p>
-            Prefer the explicit Tag family components for new code. The legacy Tag wrapper supports
-            modes: multi, single, operational, link, readonly, and dismissible.
+            Для нового кода предпочитайте явные компоненты семейства Tag. Legacy-обертка Tag
+            поддерживает режимы: multi, single, operational, link, readonly и dismissible.
           </p>
-          <h3>Usage</h3>
-          <pre><code>{`<ReadOnlyTag label="New" color="blue" />
-<SelectableTag v-model="selected" label="Moscow" value="moscow" />
-<DismissibleTag label="Moscow" close-aria-label="Remove Moscow" @dismiss="remove" />
-<OperationalTag label="Open catalog" href="/catalog" />`}</code></pre>
+          <h3>Использование</h3>
+          <pre><code>{`<ReadOnlyTag label="Новинка" color="blue" />
+<SelectableTag v-model="selected" label="Москва" value="moscow" />
+<DismissibleTag label="Москва" close-aria-label="Удалить Москву" @dismiss="remove" />
+<OperationalTag label="Открыть каталог" href="/catalog" />`}</code></pre>
           <p>
-            Use the dedicated component docs for behavior-specific props, states, and examples.
+            Props, состояния и примеры, зависящие от поведения, смотрите в документации
+            конкретных компонентов.
           </p>
         </>
       ),
     },
     {
       id: 'accessibility',
-      label: 'Accessibility',
+      label: 'Доступность',
       children: (
         <>
-          <h2>Accessibility</h2>
+          <h2>Доступность</h2>
           <ul>
-            <li>ReadOnlyTag renders static text and does not enter the tab order.</li>
-            <li>SelectableTag uses native checkbox semantics through an input control.</li>
-            <li>DismissibleTag exposes a native button for the close action and requires an accessible close label.</li>
-            <li>OperationalTag renders a button for actions and an anchor when href is provided.</li>
-            <li>Interactive tags must keep keyboard and pointer behavior equivalent.</li>
-            <li>Focus-visible styles must remain visible and token-based.</li>
+            <li>ReadOnlyTag рендерит статичный текст и не попадает в tab order.</li>
+            <li>SelectableTag использует нативную checkbox-семантику через input control.</li>
+            <li>DismissibleTag предоставляет нативную кнопку закрытия и требует доступный close label.</li>
+            <li>OperationalTag рендерит button для действий и anchor, когда задан href.</li>
+            <li>Интерактивные теги должны сохранять эквивалентное поведение для клавиатуры и указателя.</li>
+            <li>Focus-visible styles должны оставаться видимыми и token-based.</li>
           </ul>
         </>
       ),

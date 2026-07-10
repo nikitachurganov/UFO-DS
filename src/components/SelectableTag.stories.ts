@@ -1,4 +1,4 @@
-﻿import { ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import SelectableTag from './SelectableTag.vue'
 import './Tag.stories.css'
@@ -9,7 +9,7 @@ type SelectableTagStoryArgs = InstanceType<typeof SelectableTag>['$props']
 const sizes: TagSize[] = ['tiny', 'small', 'medium', 'large']
 
 const meta = {
-  title: 'Components/Tag/SelectableTag',
+  title: 'Компоненты/Tag/SelectableTag',
   component: SelectableTag,
   tags: ['autodocs'],
   parameters: {
@@ -22,29 +22,29 @@ const meta = {
     }),
   ],
   argTypes: {
-    label: { control: 'text', description: 'РўРµРєСЃС‚ С‚РµРіР°.', table: { category: 'РљРѕРЅС‚РµРЅС‚' } },
+    label: { control: 'text', description: 'Текст тега.', table: { category: 'Контент' } },
     size: {
       control: 'select',
       options: sizes,
-      description: 'Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ: tiny 24px, small 28px, medium 32px, large 36px.',
-      table: { category: 'Р’РЅРµС€РЅРёР№ РІРёРґ' },
+      description: 'Визуальный размер: tiny 24px, small 28px, medium 32px, large 36px.',
+      table: { category: 'Внешний вид' },
     },
     modelValue: {
       control: 'boolean',
-      description: 'РЎРѕСЃС‚РѕСЏРЅРёРµ РІС‹Р±РѕСЂР°. РСЃРїРѕР»СЊР·СѓРµС‚ РЅР°С‚РёРІРЅСѓСЋ СЃРµРјР°РЅС‚РёРєСѓ checkbox.',
-      table: { category: 'РЎРѕСЃС‚РѕСЏРЅРёРµ' },
+      description: 'Состояние выбора. Использует нативную семантику checkbox.',
+      table: { category: 'Состояние' },
     },
     floating: {
       control: 'boolean',
-      description: 'Р’РёР·СѓР°Р»СЊРЅРѕРµ floating-СЃРѕСЃС‚РѕСЏРЅРёРµ РёР· Figma.',
-      table: { category: 'РЎРѕСЃС‚РѕСЏРЅРёРµ' },
+      description: 'Визуальное floating-состояние из Figma.',
+      table: { category: 'Состояние' },
     },
-    disabled: { control: 'boolean', description: 'РћС‚РєР»СЋС‡Р°РµС‚ checkbox.', table: { category: 'РЎРѕСЃС‚РѕСЏРЅРёРµ' } },
-    name: { control: 'text', description: 'РќР°С‚РёРІРЅРѕРµ РёРјСЏ checkbox.', table: { category: 'РџРѕРІРµРґРµРЅРёРµ' } },
-    value: { control: 'text', description: 'РќР°С‚РёРІРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ checkbox.', table: { category: 'РџРѕРІРµРґРµРЅРёРµ' } },
+    disabled: { control: 'boolean', description: 'Отключает checkbox.', table: { category: 'Состояние' } },
+    name: { control: 'text', description: 'Нативное имя checkbox.', table: { category: 'Поведение' } },
+    value: { control: 'text', description: 'Нативное значение checkbox.', table: { category: 'Поведение' } },
   },
   args: {
-    label: 'РњРѕСЃРєРІР°',
+    label: 'Москва',
     size: 'tiny',
     modelValue: false,
     floating: false,

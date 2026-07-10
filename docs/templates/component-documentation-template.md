@@ -1,97 +1,96 @@
-# Component Documentation Template
+# Шаблон документации компонента
 
-Use this structure for every public component documentation page. Document only behavior,
-states, variants, props, and accessibility rules that exist in the implementation.
+Используйте эту структуру для каждой страницы документации публичного компонента. Документируйте только те варианты поведения, состояния, варианты, props и правила доступности, которые действительно есть в реализации.
 
-For larger Storybook Docs pages, use `DocsTabs` from `docs/components/DocsTabs` to group
-content for different audiences:
+Вся пользовательская документация должна быть на русском языке и сохранена в UTF-8 без BOM. Не оставляйте типичные последовательности mojibake, битые символы замены или строки из вопросительных знаков вместо кириллицы.
+
+Для больших страниц Storybook Docs используйте `DocsTabs` из `docs/components/DocsTabs`, чтобы сгруппировать контент для разных аудиторий:
 
 ```tsx
 <DocsTabs
   tabs={[
-    { id: 'overview', label: 'Overview', children: <>...</> },
-    { id: 'design', label: 'Design', children: <>...</> },
-    { id: 'development', label: 'Development', children: <>...</> },
-    { id: 'accessibility', label: 'Accessibility', children: <>...</> },
+    { id: 'overview', label: 'Обзор', children: <>...</> },
+    { id: 'design', label: 'Дизайн', children: <>...</> },
+    { id: 'development', label: 'Разработка', children: <>...</> },
+    { id: 'accessibility', label: 'Доступность', children: <>...</> },
   ]}
 />
 ```
 
-## Overview
+## Обзор
 
-Explain:
+Объясните:
 
-- what the component is;
-- what problem it solves;
-- when to use it;
-- when not to use it;
-- basic usage principles;
-- related components.
+- что представляет собой компонент;
+- какую задачу он решает;
+- когда его использовать;
+- когда его не использовать;
+- базовые принципы использования;
+- связанные компоненты.
 
-## Design
+## Дизайн
 
-Document:
+Документируйте:
 
-- implemented variants and their purpose;
-- implemented sizes;
-- supported visual states;
-- anatomy;
-- specification details such as height, padding, gap, radius, typography, icon size,
-  color tokens, background tokens, border tokens, min/max width, truncation, and spacing;
-- light and dark mode behavior when supported.
+- реализованные варианты и их назначение;
+- реализованные размеры;
+- поддерживаемые визуальные состояния;
+- анатомию;
+- детали спецификации: высоту, padding, gap, radius, типографику, размер иконки, цветовые токены, фоновые токены, border-токены, минимальную и максимальную ширину, обрезку текста и отступы;
+- поведение в светлой и темной теме, если оно поддерживается.
 
-Do not invent variants, states, or theme behavior.
+Не придумывайте варианты, состояния или поведение темы.
 
-## Development
+## Разработка
 
-Document:
+Документируйте:
 
-- import path;
-- real public props;
-- prop types and default values;
-- events or callbacks;
-- slots or composition points;
-- usage examples;
-- implementation notes that consumers need to know.
+- путь импорта;
+- реальные публичные props;
+- типы props и значения по умолчанию;
+- события или callbacks;
+- slots или точки композиции;
+- примеры использования;
+- заметки реализации, которые должны знать потребители.
 
-Do not expose internal helpers or implementation details as public API.
+Не раскрывайте внутренние helpers или детали реализации как публичный API.
 
-## Accessibility
+## Доступность
 
-Document:
+Документируйте:
 
-- whether the component is static or interactive;
-- semantic element or ARIA role;
-- keyboard behavior;
-- focus behavior;
-- disabled behavior;
-- accessible name requirements;
-- ARIA states and attributes;
-- screen reader expectations;
-- pointer and keyboard parity.
+- является ли компонент статичным или интерактивным;
+- семантический элемент или ARIA-роль;
+- клавиатурное поведение;
+- поведение фокуса;
+- disabled-поведение;
+- требования к доступному имени;
+- ARIA-состояния и атрибуты;
+- ожидания screen reader;
+- паритет указателя и клавиатуры.
 
-Use native semantics whenever possible.
+Используйте нативную семантику всегда, когда это возможно.
 
-## Storybook Examples Checklist
+## Чеклист примеров Storybook
 
-- Default or Playground
+- Default или Playground
 - Variants
 - Sizes
 - States
-- Disabled, when applicable
-- Interactive behavior, when applicable
-- With icon / without icon, when applicable
+- Disabled, когда применимо
+- Interactive behavior, когда применимо
+- With icon / without icon, когда применимо
 - Long content
 - Edge cases
-- Composition or slot usage, when applicable
-- Light and dark mode examples, when supported
+- Composition или slot usage, когда применимо
+- Примеры светлой и темной темы, когда поддерживаются
 
-## Completeness Checklist
+## Чеклист полноты
 
-- Documentation reflects the actual implementation.
-- Props and controls match public API.
-- Token usage is documented without duplicating raw values.
-- Accessibility notes match real semantics and behavior.
-- Stories render meaningful examples.
-- Long content and edge cases are covered.
-- No fake variants, states, props, or ARIA behavior are documented.
+- Документация отражает фактическую реализацию.
+- Props и controls соответствуют публичному API.
+- Использование токенов задокументировано без дублирования raw values.
+- Заметки по доступности соответствуют реальной семантике и поведению.
+- Stories показывают содержательные примеры.
+- Длинный контент и крайние случаи покрыты.
+- Не задокументированы несуществующие варианты, состояния, props или ARIA-поведение.

@@ -1,174 +1,185 @@
 ---
 name: storybook-docs
-description: Use this skill when adding or improving Storybook documentation for a design system component, including CSF stories, Autodocs, MDX documentation, controls, usage guidance, states, accessibility notes, and examples. Do not use it for non-Storybook documentation.
+description: Используйте этот навык при добавлении или улучшении Storybook-документации компонента дизайн-системы: CSF-истории, Autodocs, MDX-документация, controls, правила использования, состояния, заметки по доступности и примеры. Не используйте его для документации вне Storybook.
 ---
 
-# Storybook Docs Skill
+# Навык Storybook Docs
 
-## Goal
+## Цель
 
-Create complete, useful, and maintainable Storybook documentation for a design system component.
+Создавать полную, полезную и поддерживаемую Storybook-документацию для компонентов дизайн-системы.
 
-## Step 1 — Inspect existing Storybook conventions
+## Обязательные правила языка и кодировки
 
-Before editing:
+- Вся пользовательская документация Storybook должна быть на русском языке.
+- Заголовки разделов, описания компонентов, подписи controls, категории props, примеры контента, заметки по доступности и MDX-страницы пишутся на русском.
+- Технические имена компонентов, props, событий, slots, CSS-классов, импортов и значений API не переводятся.
+- Файлы документации и stories сохраняются в UTF-8 без BOM.
+- Перед завершением проверяйте, что в измененных файлах нет типичных последовательностей mojibake, битых символов замены или строк из вопросительных знаков вместо кириллицы.
+- Не документируйте варианты, состояния, props или ARIA-поведение, которых нет в реализации.
 
-- read `AGENTS.md`;
-- inspect `.storybook/`;
-- confirm which Storybook addons are enabled in `.storybook/main.*`;
-- find similar component stories;
-- inspect metadata format;
-- inspect args and controls conventions;
-- inspect docs and autodocs usage;
-- inspect MDX patterns if present;
-- inspect naming of stories and story groups;
-- inspect decorators and layout configuration.
+## Шаг 1 — изучить существующие соглашения Storybook
 
-Follow existing conventions.
-Repository-specific notes for this codebase:
+Перед редактированием:
 
-- Storybook uses `storybook@10` with `@storybook/vue3-vite`.
-- Docs require `@storybook/addon-docs` to be installed and listed in `.storybook/main.ts`.
-- Current stories are CSF3 in `src/components/*.stories.ts` using `Meta` and `StoryObj`.
-- The project currently does not use MDX files for component docs.
-- Shared story layout commonly uses the `tag-story-page` decorator wrapper.
+- прочитайте `AGENTS.md`;
+- изучите `.storybook/`;
+- проверьте, какие Storybook addons подключены в `.storybook/main.*`;
+- найдите похожие истории компонентов;
+- изучите формат metadata;
+- изучите соглашения по args и controls;
+- изучите использование docs и autodocs;
+- изучите MDX-паттерны, если они есть;
+- изучите нейминг stories и групп stories;
+- изучите decorators и настройки layout.
 
-## Step 2 — Define documentation scope
+Следуйте существующим соглашениям.
 
-For the component, document:
+Особенности этого репозитория:
 
-- purpose;
-- when to use;
-- when not to use;
-- related components;
-- anatomy;
-- variants;
-- sizes;
-- states;
-- behavior;
-- accessibility;
-- content guidelines;
-- edge cases.
+- Используется `storybook@10` с `@storybook/vue3-vite`.
+- Для Docs нужен установленный и подключенный в `.storybook/main.ts` `@storybook/addon-docs`.
+- Текущие stories используют CSF3 в `src/components/*.stories.ts` с `Meta` и `StoryObj`.
+- MDX используется точечно для расширенной документации компонентов.
+- Общая раскладка stories часто использует decorator-обертку `tag-story-page`.
 
-## Step 3 — Required stories
+## Шаг 2 — определить объем документации
 
-Add or update these stories when applicable:
+Для компонента документируйте:
 
-- Default
-- Sizes
-- Variants
-- States
-- Disabled
-- Interactive
-- WithIcon
-- WithoutIcon
-- LongContent
-- CustomContent or SlotUsage
-- Accessibility
-- Playground, if the repository uses it
+- назначение;
+- когда использовать;
+- когда не использовать;
+- связанные компоненты;
+- анатомию;
+- варианты;
+- размеры;
+- состояния;
+- поведение;
+- доступность;
+- правила контента;
+- крайние случаи.
 
-Do not create stories that duplicate each other.
+## Шаг 3 — обязательные stories
 
-## Step 4 — Args and controls
+Добавляйте или обновляйте эти stories, когда они применимы:
 
-Configure controls so the component can be tested interactively.
+- Default;
+- Sizes;
+- Variants;
+- States;
+- Disabled;
+- Interactive;
+- WithIcon;
+- WithoutIcon;
+- LongContent;
+- CustomContent или SlotUsage;
+- Accessibility;
+- Playground, если репозиторий использует такой формат.
 
-Rules:
+Не создавайте дублирующие друг друга stories.
 
-- Use realistic default args.
-- Hide internal-only props from controls.
-- Use select or radio controls for finite variants.
-- Use boolean controls for true boolean props.
-- Use text controls for labels and simple content.
-- Avoid exposing implementation details.
+## Шаг 4 — args и controls
 
-## Step 5 — Documentation content
+Настройте controls так, чтобы компонент можно было проверять интерактивно.
 
-For simple components, use Autodocs with clear stories.
+Правила:
 
-For this repository, prefer:
+- Используйте реалистичные значения args по умолчанию.
+- Скрывайте внутренние props из controls.
+- Используйте select или radio для конечного набора вариантов.
+- Используйте boolean controls только для настоящих boolean props.
+- Используйте text controls для labels и простого контента.
+- Не раскрывайте детали реализации.
+- Описания controls и категории таблицы props пишите на русском.
+
+## Шаг 5 — содержание документации
+
+Для простых компонентов используйте Autodocs с понятными stories.
+
+Для этого репозитория предпочитайте:
 
 - `tags: ['autodocs']`;
-- `component: ComponentName` in the default meta export;
-- `parameters.docs.description.component` for narrative docs text;
-- story examples and controls instead of custom docs-page rendering when possible.
+- `component: ComponentName` в default meta export;
+- `parameters.docs.description.component` для текстового описания;
+- stories и controls вместо кастомного docs-page rendering, когда этого достаточно.
 
-Do not use `parameters.docs.page` with a plain Vue component or options object in this repository. In the current setup this can cause runtime Docs failures such as `docsParameter.renderer is not a function`.
+Не используйте `parameters.docs.page` с обычным Vue-компонентом или options object в этом репозитории. В текущей настройке это может приводить к runtime-сбоям Docs, например `docsParameter.renderer is not a function`.
 
-For complex components, add MDX or a richer docs page with:
+Для сложных компонентов добавляйте MDX или более богатую docs-страницу с русскими разделами:
 
-# ComponentName
+# ИмяКомпонента
 
-## Overview
+## Обзор
 
-## When to use
+## Когда использовать
 
-## When not to use
+## Когда не использовать
 
-## Anatomy
+## Анатомия
 
-## Variants
+## Варианты
 
-## Sizes
+## Размеры
 
-## States
+## Состояния
 
-## Accessibility
+## Доступность
 
-## Content guidelines
+## Правила контента
 
-## Related components
+## Связанные компоненты
 
-## Step 6 — Accessibility notes
+## Шаг 6 — заметки по доступности
 
-Document:
+Документируйте:
 
-- semantic role;
-- keyboard interaction;
-- focus behavior;
-- ARIA state;
-- disabled behavior;
-- screen reader expectations;
-- usage constraints.
+- семантическую роль;
+- клавиатурное взаимодействие;
+- поведение фокуса;
+- ARIA-состояния;
+- disabled-поведение;
+- ожидания screen reader;
+- ограничения использования.
 
-## Step 7 — Interaction examples
+## Шаг 7 — интерактивные примеры
 
-For interactive components, add story examples that demonstrate:
+Для интерактивных компонентов добавляйте примеры, которые показывают:
 
-- click behavior;
-- keyboard behavior;
-- selected or checked state;
-- controlled usage;
-- disabled behavior;
-- navigation behavior when applicable.
+- поведение при клике;
+- клавиатурное поведение;
+- selected- или checked-состояние;
+- controlled-использование;
+- disabled-поведение;
+- навигационное поведение, когда применимо.
 
-Use play functions only if the repository already uses them or if Storybook testing is configured.
+Используйте play functions только если репозиторий уже использует их или если настроено Storybook-тестирование.
 
-## Step 8 — Validate
+## Шаг 8 — проверка
 
-Run available Storybook-related commands:
+Запускайте доступные Storybook-команды:
 
-- Storybook build;
+- сборку Storybook;
 - Storybook tests;
-- unit tests if stories import tested utilities;
+- unit tests, если stories импортируют тестируемые утилиты;
 - lint;
 - typecheck.
 
-Do not invent missing commands.
+Не выдумывайте отсутствующие команды.
 
-Repository-specific validation order:
+Порядок проверки для этого репозитория:
 
-- run `npm run typecheck`;
-- run `npm run build-storybook`;
-- if Docs are blank or crash, inspect the browser console for missing `@storybook/addon-docs` or incompatible `parameters.docs.*` usage before rewriting stories.
+- запустите `npm run typecheck`;
+- запустите `npm run build-storybook`;
+- если Docs пустые или падают, проверьте browser console на отсутствие `@storybook/addon-docs` или несовместимое использование `parameters.docs.*` перед переписыванием stories.
 
-## Final response
+## Финальный ответ
 
-Return:
+Верните:
 
-- docs files changed;
-- stories added or updated;
-- controls configured;
-- accessibility notes added;
-- validation commands and results;
-- missing documentation risks.
+- измененные docs-файлы;
+- добавленные или обновленные stories;
+- настроенные controls;
+- добавленные заметки по доступности;
+- команды проверки и результаты;
+- оставшиеся риски документации.

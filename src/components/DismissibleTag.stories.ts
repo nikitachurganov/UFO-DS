@@ -1,4 +1,4 @@
-﻿import type { Meta, StoryObj } from '@storybook/vue3-vite'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import DismissibleTag from './DismissibleTag.vue'
 import './Tag.stories.css'
 import type { TagSize, TagTone } from './Tag.types'
@@ -9,7 +9,7 @@ const sizes: TagSize[] = ['tiny', 'small', 'medium', 'large']
 const types: TagTone[] = ['primary', 'secondary']
 
 const meta = {
-  title: 'Components/Tag/DismissibleTag',
+  title: 'Компоненты/Tag/DismissibleTag',
   component: DismissibleTag,
   tags: ['autodocs'],
   parameters: {
@@ -22,37 +22,37 @@ const meta = {
     }),
   ],
   argTypes: {
-    label: { control: 'text', description: 'РўРµРєСЃС‚ С‚РµРіР°.', table: { category: 'РљРѕРЅС‚РµРЅС‚' } },
+    label: { control: 'text', description: 'Текст тега.', table: { category: 'Контент' } },
     size: {
       control: 'select',
       options: sizes,
-      description: 'Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ: tiny 24px, small 28px, medium 32px, large 36px.',
-      table: { category: 'Р’РЅРµС€РЅРёР№ РІРёРґ' },
+      description: 'Визуальный размер: tiny 24px, small 28px, medium 32px, large 36px.',
+      table: { category: 'Внешний вид' },
     },
     type: {
       control: 'select',
       options: types,
-      description: 'Р’РёР·СѓР°Р»СЊРЅС‹Р№ С‚РёРї: primary РёР»Рё secondary.',
-      table: { category: 'Р’РЅРµС€РЅРёР№ РІРёРґ' },
+      description: 'Визуальный тип: primary или secondary.',
+      table: { category: 'Внешний вид' },
     },
     icon: {
       control: 'boolean',
-      description: 'РџРѕРєР°Р·С‹РІР°РµС‚ РєРЅРѕРїРєСѓ СЃ РёРєРѕРЅРєРѕР№ Р·Р°РєСЂС‹С‚РёСЏ.',
-      table: { category: 'РљРѕРЅС‚РµРЅС‚' },
+      description: 'Показывает кнопку с иконкой закрытия.',
+      table: { category: 'Контент' },
     },
     closeAriaLabel: {
       control: 'text',
-      description: 'Р”РѕСЃС‚СѓРїРЅРѕРµ РЅР°Р·РІР°РЅРёРµ РєРЅРѕРїРєРё Р·Р°РєСЂС‹С‚РёСЏ.',
-      table: { category: 'Р”РѕСЃС‚СѓРїРЅРѕСЃС‚СЊ' },
+      description: 'Доступное название кнопки закрытия.',
+      table: { category: 'Доступность' },
     },
-    disabled: { control: 'boolean', description: 'РћС‚РєР»СЋС‡Р°РµС‚ РєРЅРѕРїРєСѓ Р·Р°РєСЂС‹С‚РёСЏ.', table: { category: 'РЎРѕСЃС‚РѕСЏРЅРёРµ' } },
+    disabled: { control: 'boolean', description: 'Отключает кнопку закрытия.', table: { category: 'Состояние' } },
   },
   args: {
-    label: 'РњРѕСЃРєРІР°',
+    label: 'Москва',
     size: 'tiny',
     type: 'primary',
     icon: true,
-    closeAriaLabel: 'РЈРґР°Р»РёС‚СЊ РњРѕСЃРєРІСѓ',
+    closeAriaLabel: 'Удалить Москву',
     disabled: false,
   },
 } satisfies Meta<DismissibleTagStoryArgs>

@@ -7,7 +7,7 @@ import Tag from './Tag.vue'
 import './Tag.stories.css'
 
 const meta = {
-  title: 'Components/Tag/Overview',
+  title: 'Компоненты/Tag/Обзор',
   component: Tag,
   parameters: {
     layout: 'fullscreen',

@@ -1,3 +1,10 @@
 .docblock-argstable-head {
   display: none;
 }
+
+.sbdocs h1,
+.sbdocs h2,
+.sbdocs h3,
+.sbdocs h4 {
+  border-bottom: 0 !important;
+}

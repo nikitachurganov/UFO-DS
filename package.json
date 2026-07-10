@@ -18,6 +18,8 @@
     "verify": "npm run validate:tokens && npm run typecheck && npm run test && npm run build && npm run build-storybook"
   },
   "dependencies": {
+    "@dns-modules/base-ui-button": "^4.1.3",
+    "@dns-modules/font-icon": "^2.0.2511261004",
     "@fontsource/pt-sans": "^5.2.8",
     "vue": "^3.5.0"
   },
