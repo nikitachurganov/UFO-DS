@@ -113,8 +113,21 @@
   gap: var(--spaces-semantic-medium-12px);
 }
 
+.tag-docs__property-lines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-semantic-medium-12px);
+  padding-top: var(--spaces-semantic-xl-20px);
+}
+
+.tag-docs__property-lines p {
+  font-size: 16px;
+  line-height: 140%;
+}
+
 .tag-docs h1,
 .tag-docs h2,
+.tag-docs h3,
 .tag-docs p {
   margin: 0;
 }
@@ -126,6 +139,11 @@
 
 .tag-docs h2 {
   font-size: 24px;
+  line-height: 130%;
+}
+
+.tag-docs h3 {
+  font-size: 20px;
   line-height: 130%;
 }
 

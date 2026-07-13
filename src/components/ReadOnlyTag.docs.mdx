@@ -24,7 +24,15 @@ import './Tag.stories.css'
       children: (
         <article className="tag-docs">
           <section className="tag-docs__section">
+            <h2>Компонент и свойства</h2>
             <Story of={ReadOnlyTagStories.ColorSizeMatrix} />
+            <div className="tag-docs__property-lines">
+              <p><strong>Size</strong> — размер тега. Определяет высоту, внутренние отступы, размер текста и иконки.</p>
+              <p><strong>Color</strong> — цвет тега.</p>
+              <p><strong>Icon left</strong> — иконка, стоящая перед текстом.</p>
+              <p><strong>Icon right</strong> — в текущей реализации не поддерживается.</p>
+              <p><strong>Text</strong> — основной текст тега. Передаёт короткое значение или характеристику.</p>
+            </div>
           </section>
 
           <section className="tag-docs__section">
