@@ -13,7 +13,7 @@
 --transparency-white-24: #ffffff;
 --transparency-dark-dark-4: #000000;
 --transparency-dark-dark-8: #000000;
---transparency-dark-dark-10: #000000;
+--transparency-dark-dark-10: rgba(0, 0, 0, 0.10);
 --space-gray-25: #eae8e8;
 --jupiter-orange-1000: #1f1004;
 --jupiter-orange-900: #331903;

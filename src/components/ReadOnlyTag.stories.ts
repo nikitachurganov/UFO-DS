@@ -42,7 +42,7 @@ const themeExamples = [
   { color: 'orange-accent' },
 ] satisfies Array<{ color: ReadOnlyTagColor }>
 const readOnlyTagDescription = `
-ReadOnlyTag — неинтерактивный информационный тег для коротких меток, категорий и атрибутов, которые нужно только прочитать.
+Неинтерактивный информационный тег для коротких меток, категорий и атрибутов, которые нужно только прочитать.
 `
 
 const ReadOnlyTagDocsPage = {
@@ -514,46 +514,50 @@ export const ColorSizeMatrix: Story = {
           class="read-only-tag-matrix"
           aria-label="Варианты ReadOnlyTag по цвету и размеру"
         >
-          <div class="read-only-tag-matrix__top">
-            <div class="read-only-tag-matrix__top-spacer"></div>
-            <div class="read-only-tag-matrix__size-axis">
-              <span class="read-only-tag-matrix__axis-title">Size</span>
-              <span class="read-only-tag-matrix__horizontal-bracket" aria-hidden="true"></span>
-              <div class="read-only-tag-matrix__size-labels">
-                <span
-                  v-for="size in matrixSizes"
-                  :key="size.value"
-                  class="read-only-tag-matrix__label read-only-tag-matrix__label--size"
-                >
-                  {{ size.label }}
-                </span>
+          <div class="read-only-tag-matrix__layout">
+            <div class="read-only-tag-matrix__top">
+              <div class="read-only-tag-matrix__top-spacer"></div>
+              <div class="read-only-tag-matrix__size-axis">
+                <span class="read-only-tag-matrix__axis-title">Size</span>
+                <span class="read-only-tag-matrix__horizontal-bracket" aria-hidden="true"></span>
+                <div class="read-only-tag-matrix__size-labels">
+                  <span
+                    v-for="size in matrixSizes"
+                    :key="size.value"
+                    class="read-only-tag-matrix__label read-only-tag-matrix__label--size"
+                  >
+                    {{ size.label }}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="read-only-tag-matrix__body">
-            <div class="read-only-tag-matrix__color-title">Color</div>
-            <span class="read-only-tag-matrix__vertical-bracket" aria-hidden="true"></span>
-            <div class="read-only-tag-matrix__color-labels">
-              <span
-                v-for="color in matrixColors"
-                :key="color.value"
-                class="read-only-tag-matrix__label"
-              >
-                {{ color.label }}
-              </span>
-            </div>
-            <div class="read-only-tag-matrix__cells">
-              <div
-                v-for="color in matrixColors"
-                :key="color.value"
-                class="read-only-tag-matrix__row"
-              >
+            <div class="read-only-tag-matrix__body">
+              <div class="read-only-tag-matrix__color-axis">
+                <div class="read-only-tag-matrix__color-title">Color</div>
+                <span class="read-only-tag-matrix__vertical-bracket" aria-hidden="true"></span>
+                <div class="read-only-tag-matrix__color-labels">
+                  <span
+                    v-for="color in matrixColors"
+                    :key="color.value"
+                    class="read-only-tag-matrix__label"
+                  >
+                    {{ color.label }}
+                  </span>
+                </div>
+              </div>
+              <div class="read-only-tag-matrix__cells">
                 <div
-                  v-for="size in matrixSizes"
-                  :key="size.value"
-                  class="read-only-tag-matrix__cell"
+                  v-for="color in matrixColors"
+                  :key="color.value"
+                  class="read-only-tag-matrix__row"
                 >
-                  <ReadOnlyTag label="Москва" :size="size.value" :color="color.value" />
+                  <div
+                    v-for="size in matrixSizes"
+                    :key="size.value"
+                    class="read-only-tag-matrix__cell"
+                  >
+                    <ReadOnlyTag label="Москва" :size="size.value" :color="color.value" />
+                  </div>
                 </div>
               </div>
             </div>

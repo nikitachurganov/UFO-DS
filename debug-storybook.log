@@ -1,0 +1,23 @@
+[12:03:56.942] [INFO] storybook v10.4.6
+[12:03:59.377] [DEBUG] Getting package.json info for D:/Git/UFO дизайн система/package.json...
+[12:04:00.936] [INFO] Starting...
+[12:04:01.468] [DEBUG] Starting preview..
+[12:04:01.838] [DEBUG] Change detection enabled.
+[12:04:01.838] [DEBUG] Change detection: snapshotting Vite resolve config (restart required if vite.config.ts changes)
+[12:04:01.845] [DEBUG] Change detection: ignored 12 regex alias(es); related modules tracked as opaque-leaf.
+[12:04:01.845] [DEBUG] ChangeDetectionResolverFactory: skipped regex aliases [/^@storybook\/global$/, /^storybook\/test$/, /^storybook\/actions$/, /^storybook\/preview-api$/, /^storybook\/internal\/channels$/, /^storybook\/internal\/client-logger$/, /^storybook\/internal\/core-events$/, /^storybook\/internal\/preview-errors$/, /^storybook\/internal\/types$/, /^storybook\/internal\/preview-api$/, /^\/?@vite\/env/, /^\/?@vite\/client/]
+[12:04:01.852] [ERROR] [38;2;241;97;97mError: listen EADDRINUSE: address already in use :::6006[39m
+    at Server.setupListenHandle [as _listen2] (node:net:2009:16)
+    at listenInCluster (node:net:2066:12)
+    at Server.listen (node:net:2171:7)
+    at _Polka.listen (file:///D:/Git/UFO%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0/node_modules/storybook/dist/core-server/index.js:9924:110)
+    at file:///D:/Git/UFO%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0/node_modules/storybook/dist/core-server/index.js:11517:39
+    at new Promise (<anonymous>)
+    at storybookDevServer (file:///D:/Git/UFO%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0/node_modules/storybook/dist/core-server/index.js:11516:19)
+    at async buildOrThrow (file:///D:/Git/UFO%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0/node_modules/storybook/dist/core-server/index.js:8205:12)
+    at async buildDevStandalone (file:///D:/Git/UFO%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0/node_modules/storybook/dist/core-server/index.js:12057:41)
+    at async withTelemetry (file:///D:/Git/UFO%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0/node_modules/storybook/dist/_node-chunks/chunk-G7NXW2C2.js:650:12)
+[12:04:01.856] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.
+[12:04:02.134] [DEBUG] Change detection graph built: 5 stories, 20 deps tracked, 288ms
+[13:09:28.207] [PROMPT] Would you like to send anonymous crash reports to improve Storybook and fix bugs faster? {"choice":true}

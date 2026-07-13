@@ -183,7 +183,7 @@
   align-items: center;
   justify-content: center;
   margin: var(--spaces-semantic-large-16px) 0 var(--spaces-semantic-4xl-32px);
-  padding: var(--spaces-semantic-large-16px);
+  padding: var(--spaces-semantic-xxxl-28px);
   overflow-x: auto;
   background: var(--background-primary-surface);
   border: 0;
@@ -192,7 +192,7 @@
 
 .tag-docs-anatomy img {
   display: block;
-  width: min(100%, 716px);
+  width: min(100%, 400px);
   height: auto;
 }
 
@@ -238,20 +238,25 @@
   font-family: var(--font-family-paragraph);
 }
 
-.read-only-tag-matrix__top {
+.read-only-tag-matrix__layout {
   display: grid;
-  grid-template-columns: 72px var(--spaces-semantic-small-8px) max-content 1fr;
-  column-gap: var(--spaces-semantic-small-8px);
-  align-items: end;
+  grid-template-columns: max-content 1fr;
+  row-gap: var(--spaces-semantic-large-16px);
+  align-items: stretch;
+}
+
+.read-only-tag-matrix__top,
+.read-only-tag-matrix__body {
+  display: contents;
 }
 
 .read-only-tag-matrix__top-spacer {
-  grid-column: 1 / 4;
+  grid-column: 1;
 }
 
 .read-only-tag-matrix__size-axis {
   display: flex;
-  grid-column: 4;
+  grid-column: 2;
   flex-direction: column;
   gap: var(--spaces-semantic-small-8px);
   align-items: stretch;
@@ -302,11 +307,12 @@
   justify-content: center;
 }
 
-.read-only-tag-matrix__body {
+.read-only-tag-matrix__color-axis {
   display: grid;
-  grid-template-columns: 72px var(--spaces-semantic-small-8px) max-content 1fr;
+  grid-template-columns: 72px var(--spaces-semantic-small-8px) max-content;
   column-gap: var(--spaces-semantic-small-8px);
   align-items: stretch;
+  grid-column: 1;
 }
 
 .read-only-tag-matrix__color-title {
@@ -334,6 +340,7 @@
 }
 
 .read-only-tag-matrix__cells {
+  grid-column: 2;
   display: flex;
   flex-direction: column;
   gap: var(--spaces-semantic-medium-12px);
@@ -557,7 +564,7 @@
 
 .tag-theme-demo__panel {
   display: grid;
-  padding: var(--spaces-semantic-5-xl-40-px, 40px) 148px;
+  padding: var(--spaces-semantic-5xl-40px) 148px;
   row-gap: 20px;
   column-gap: 40px;
   flex: 1 0 0;

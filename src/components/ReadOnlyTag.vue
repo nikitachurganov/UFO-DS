@@ -120,6 +120,10 @@ const rootClasses = computed(() => [
   padding: 0 var(--spaces-semantic-tiny-4px);
 }
 
+.read-only-tag--tiny .read-only-tag__text-wrapper {
+  padding-block: 0;
+}
+
 .read-only-tag--small .read-only-tag__container {
   min-height: var(--700);
   padding: 0 var(--spaces-semantic-tiny-4px);
