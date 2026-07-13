@@ -2,6 +2,14 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import ReadOnlyTag from './ReadOnlyTag.vue'
 import './Tag.stories.css'
 import type { ReadOnlyTagColor, TagSize } from './Tag.types'
+import doIcon from '../images/do.svg'
+import dontIcon from '../images/dont.svg'
+import correctExample1 from '../images/correct_ex_1.png'
+import correctExample2 from '../images/correct_ex_2.png'
+import iconHover from '../images/icon_hover.png'
+import incorrectExample1 from '../images/incorrect_ex_1.png'
+import incorrectExample2 from '../images/incorrect_ex_2.png'
+import overflowHover from '../images/overflow_hover.png'
 
 type ReadOnlyTagStoryArgs = InstanceType<typeof ReadOnlyTag>['$props']
 
@@ -24,27 +32,17 @@ const matrixColors = [
   { value: 'orange-accent', label: 'orange-accent' },
 ] satisfies Array<{ value: ReadOnlyTagColor; label: string }>
 const themeExamples = [
-  { label: 'Базовый', color: 'gray' },
-  { label: 'Инфо', color: 'blue' },
-  { label: 'Бонус', color: 'purple' },
-  { label: 'Успех', color: 'green' },
-  { label: 'Ошибка', color: 'red' },
-  { label: 'DNS', color: 'orange' },
-  { label: 'Акцент', color: 'orange-accent' },
-  { label: 'Внимание', color: 'yellow' },
-] satisfies Array<{ label: string; color: ReadOnlyTagColor }>
-const themes = [
-  { id: 'light', title: 'Light' },
-  { id: 'dark', title: 'Dark' },
-]
+  { color: 'purple' },
+  { color: 'blue' },
+  { color: 'gray' },
+  { color: 'green' },
+  { color: 'red' },
+  { color: 'orange' },
+  { color: 'yellow' },
+  { color: 'orange-accent' },
+] satisfies Array<{ color: ReadOnlyTagColor }>
 const readOnlyTagDescription = `
 ReadOnlyTag — неинтерактивный информационный тег для коротких меток, категорий и атрибутов, которые нужно только прочитать.
-
-Используйте его, когда контент должен оставаться статичным и не должен вести себя как ссылка, checkbox, действие удаления или кнопка.
-
-Компонент рендерится как \`span\`, не попадает в tab order, не раскрывает selected- или checked-состояния через ARIA и скрывает декоративную leading-иконку от ассистивных технологий через \`aria-hidden="true"\`.
-
-Используйте stories ниже, чтобы проверить поддерживаемые размеры, семантические цвета, работу с иконкой, обрезку длинного контента и ожидаемое неинтерактивное поведение.
 `
 
 const ReadOnlyTagDocsPage = {
@@ -571,26 +569,140 @@ export const ThemeBlock: Story = {
   render: () => ({
     components: { ReadOnlyTag },
     setup() {
-      return { themeExamples, themes }
+      return { themeExamples }
     },
     template: `
       <div class="tag-theme-demo">
-        <section
-          v-for="theme in themes"
-          :key="theme.id"
-          class="tag-theme-demo__panel"
-          :data-theme="theme.id"
-        >
-          <div class="tag-theme-demo__row">
-            <ReadOnlyTag
-              v-for="example in themeExamples"
-              :key="example.color"
-              :label="example.label"
-              :color="example.color"
-              size="medium"
-            />
-          </div>
+        <section class="tag-theme-demo__panel tag-theme-demo__panel--light" data-theme="light">
+          <ReadOnlyTag
+            v-for="example in themeExamples"
+            :key="example.color"
+            label="Москва"
+            :color="example.color"
+            size="small"
+          />
         </section>
+        <section class="tag-theme-demo__panel tag-theme-demo__panel--dark" data-theme="dark">
+          <ReadOnlyTag
+            v-for="example in themeExamples"
+            :key="example.color"
+            label="Москва"
+            :color="example.color"
+            size="small"
+          />
+        </section>
+      </div>
+    `,
+  }),
+}
+
+export const BehaviorExamples: Story = {
+  tags: ['!dev', '!autodocs'],
+  render: () => ({
+    setup() {
+      return { iconHover, overflowHover }
+    },
+    template: `
+      <div class="read-only-tag-showcase" aria-label="Примеры поведения ReadOnlyTag">
+        <div class="read-only-tag-showcase__item">
+          <img
+            class="read-only-tag-showcase__image"
+            :src="iconHover"
+            alt="Тег с подсказкой при наведении на иконку информации"
+          />
+          <p class="read-only-tag-showcase__caption">При наведении на иконку инфо</p>
+        </div>
+        <div class="read-only-tag-showcase__item">
+          <img
+            class="read-only-tag-showcase__image"
+            :src="overflowHover"
+            alt="Тег с многоточием и подсказкой при наведении"
+          />
+          <p class="read-only-tag-showcase__caption">При наведении на тег с многоточием</p>
+        </div>
+      </div>
+    `,
+  }),
+}
+
+export const UseCases: Story = {
+  tags: ['!dev', '!autodocs'],
+  render: () => ({
+    setup() {
+      return {
+        correctExample1,
+        correctExample2,
+        doIcon,
+        dontIcon,
+        incorrectExample1,
+        incorrectExample2,
+      }
+    },
+    template: `
+      <div class="read-only-tag-use-cases" aria-label="Когда использовать и не использовать ReadOnlyTag">
+        <div class="read-only-tag-use-cases__summary">
+          <section class="read-only-tag-use-cases__column">
+            <h3 class="read-only-tag-use-cases__title">
+              <img :src="doIcon" alt="" aria-hidden="true" />
+              Когда используется:
+            </h3>
+            <ul class="read-only-tag-use-cases__list">
+              <li>Название категории или акции.</li>
+              <li>Компактный атрибут объекта.</li>
+              <li>Уточняющая метка, которая не требует действия.</li>
+            </ul>
+          </section>
+          <section class="read-only-tag-use-cases__column">
+            <h3 class="read-only-tag-use-cases__title">
+              <img :src="dontIcon" alt="" aria-hidden="true" />
+              Когда не используется:
+            </h3>
+            <ul class="read-only-tag-use-cases__list">
+              <li>Не обозначает действие.</li>
+              <li>Не отображает статус какого-либо процесса.</li>
+              <li>Не заменяет alert, badge или status.</li>
+              <li>Не содержит длинный текст, который должен быть обязательно прочитан пользователем.</li>
+            </ul>
+          </section>
+        </div>
+        <div class="read-only-tag-use-cases__examples">
+          <div class="read-only-tag-use-cases__example">
+            <div class="read-only-tag-use-cases__canvas">
+              <img :src="correctExample1" alt="Тег с иконкой информации и подсказкой" />
+            </div>
+            <p class="read-only-tag-use-cases__note">
+              <img :src="doIcon" alt="" aria-hidden="true" />
+              Доп. информация может быть указана, если есть иконка «info».
+            </p>
+          </div>
+          <div class="read-only-tag-use-cases__example">
+            <div class="read-only-tag-use-cases__canvas">
+              <img :src="incorrectExample1" alt="Тег с подсказкой при наведении на сам тег" />
+            </div>
+            <p class="read-only-tag-use-cases__note">
+              <img :src="dontIcon" alt="" aria-hidden="true" />
+              Не использовать hover на теге.
+            </p>
+          </div>
+          <div class="read-only-tag-use-cases__example">
+            <div class="read-only-tag-use-cases__canvas">
+              <img :src="correctExample2" alt="Тег с базовым регистром текста" />
+            </div>
+            <p class="read-only-tag-use-cases__note">
+              <img :src="doIcon" alt="" aria-hidden="true" />
+              Использовать базовые стили текста, заложенные в компоненте.
+            </p>
+          </div>
+          <div class="read-only-tag-use-cases__example">
+            <div class="read-only-tag-use-cases__canvas">
+              <img :src="incorrectExample2" alt="Тег с измененным регистром текста" />
+            </div>
+            <p class="read-only-tag-use-cases__note">
+              <img :src="dontIcon" alt="" aria-hidden="true" />
+              Не изменять настройки стилей текста и его регистр.
+            </p>
+          </div>
+        </div>
       </div>
     `,
   }),
