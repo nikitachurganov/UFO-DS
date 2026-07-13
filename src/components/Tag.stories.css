@@ -198,11 +198,9 @@
 
 .tag-docs-anatomy {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: var(--spaces-semantic-large-16px) 0 var(--spaces-semantic-4xl-32px);
+  margin: auto;
   padding: var(--spaces-semantic-xxxl-28px);
-  overflow-x: auto;
   background: var(--background-primary-surface);
   border: 0;
   border-radius: var(--lg-16px);
